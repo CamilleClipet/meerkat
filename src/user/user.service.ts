@@ -29,7 +29,9 @@ export class UserService {
         .findOne({ name: instrument })
         .exec();
       if (!existingInstrument) {
-        throw new ConflictException(`No instrument with the name ${instrument} exists`);
+        throw new ConflictException(
+          `No instrument with the name ${instrument} exists`,
+        );
       }
       instrumentIds.push(existingInstrument._id as Types.ObjectId);
     }
