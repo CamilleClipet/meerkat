@@ -48,6 +48,7 @@ export class UserService {
 
     const newUser = new this.userModel({
       ...createUserDto, // Copy all properties from the DTO
+      zipCode: +createUserDto.zipCode,
       instruments: instrumentIds, // Set the instruments to an array of ObjectIds
       genres: genreIds, // Set the genres to an array of ObjectIds
     });

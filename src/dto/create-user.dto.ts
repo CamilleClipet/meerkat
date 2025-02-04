@@ -1,7 +1,6 @@
 import {
   IsArray,
   IsNotEmpty,
-  IsNumber,
   IsString,
   MaxLength,
 } from 'class-validator';
@@ -17,7 +16,7 @@ export class CreateUserDto {
   @IsNotEmpty()
   readonly lastName: string;
 
-  @IsNumber()
+  @IsString()
   @IsNotEmpty()
   readonly zipCode: number;
 
