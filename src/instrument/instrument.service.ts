@@ -23,4 +23,9 @@ export class InstrumentService {
     const instrument = new this.instrumentModel(createInstrumentDto);
     return instrument.save();
   }
+
+  async getAllInstruments() {
+    const allInstruments = await this.instrumentModel.find();
+    return allInstruments;
+  }
 }

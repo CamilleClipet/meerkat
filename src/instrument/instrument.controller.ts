@@ -1,4 +1,4 @@
-import { Body, Controller, HttpStatus, Post, Res } from '@nestjs/common';
+import { Body, Controller, Get, HttpStatus, Post, Res } from '@nestjs/common';
 import { InstrumentService } from './instrument.service';
 import { CreateInstrumentDto } from '../dto/create-instrument.dto';
 
@@ -26,5 +26,11 @@ export class InstrumentController {
         error: err,
       });
     }
+  }
+
+  @Get()
+  async getAllInstruments(@Res() response) {
+    const allInstruments = await this.instrumentService.getAllInstruments();
+    return response.status(HttpStatus.FOUND).json(allInstruments);
   }
 }
